@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    menu_pause.xml — Toolbar options menu for GameActivity.
+    Shows a single pause icon on the top-right of the toolbar.
+    Tapping it triggers showPauseDialog() in GameActivity.
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_pause"
+        android:title="@string/pause_title"
+        android:icon="@android:drawable/ic_media_pause"
+        android:contentDescription="@string/pause_button_desc"
+        app:showAsAction="always" />
+
+</menu>

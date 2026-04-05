@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    card_back.xml — CARD BACK PLACEHOLDER
+    ══════════════════════════════════════
+    🎨 CUSTOMISE: Replace this with your card-back design.
+
+    Options:
+      A) Image  → <bitmap android:src="@drawable/my_card_back_image" android:gravity="center" />
+      B) Custom vector art → paste your <vector> drawable here
+      C) Keep the pattern below and only change colors
+
+    Current placeholder: a diamond-grid pattern on a dark blue card.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Base fill -->
+    <item>
+        <shape>
+            <solid android:color="#1B2A4A" />
+        </shape>
+    </item>
+
+    <!-- Decorative border inset -->
+    <item
+        android:left="6dp"
+        android:top="6dp"
+        android:right="6dp"
+        android:bottom="6dp">
+        <shape>
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="2dp"
+                android:color="#E0C97A" />
+            <corners android:radius="6dp" />
+        </shape>
+    </item>
+
+    <!-- Center diamond accent -->
+    <item
+        android:left="24dp"
+        android:top="24dp"
+        android:right="24dp"
+        android:bottom="24dp">
+        <rotate android:fromDegrees="45">
+            <shape>
+                <solid android:color="#E0C97A" />
+            </shape>
+        </rotate>
+    </item>
+
+    <!-- back card image -->
+    <item
+        android:top="155dp"
+        android:bottom="155dp"
+        android:left="155dp"
+        android:right="155dp">
+        <bitmap
+            android:src="@drawable/triq"
+            android:gravity="center"
+            android:alpha="0.4"/>
+    </item>
+
+</layer-list>

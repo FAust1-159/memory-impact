@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    bg_game.xml — GAME BACKGROUND PLACEHOLDER
+    ══════════════════════════════════════════
+    🎨 CUSTOMISE: Replace this entire file with your own background.
+    Same options as bg_lobby.xml — see that file for full instructions.
+
+    Current placeholder: a darker variant of the lobby gradient.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:type="linear"
+        android:angle="135"
+        android:startColor="#0D0D1A"
+        android:centerColor="#111830"
+        android:endColor="#0A2040" />
+</shape>

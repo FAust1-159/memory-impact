@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    bg_lobby.xml — LOBBY BACKGROUND PLACEHOLDER
+    ════════════════════════════════════════════
+    🎨 CUSTOMISE: Replace this entire file with your own background.
+
+    Options:
+      A) Solid color       → <color> in colors.xml, then set android:background="@color/yourColor"
+      B) Gradient          → Replace the gradient stops below
+      C) Image             → Use a <bitmap> drawable pointing to your image in res/drawable/
+      D) Nine-patch        → Drop a .9.png into res/drawable/ and reference it
+
+    Current placeholder: a soft diagonal gradient.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:type="linear"
+        android:angle="135"
+        android:startColor="#1A1A2E"
+        android:centerColor="#16213E"
+        android:endColor="#0F3460" />
+</shape>

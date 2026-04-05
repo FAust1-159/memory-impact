@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    themes.xml — App theme
+    🎨 FONT CUSTOMISATION:
+      1. Drop your .ttf or .otf file(s) into  res/font/
+      2. Change the android:fontFamily references below to @font/your_font_name
+         (the filename without extension, e.g. res/font/press_start.ttf → @font/press_start)
+      3. Rebuild — fonts propagate everywhere via the theme.
+
+    Current placeholders use the system sans-serif family so the app compiles
+    without any extra font files. Replace them when you have your assets ready.
+
+    ── Font slots ────────────────────────────────────────────────────────────
+      lobby_font  →  used by the lobby title AND lobby buttons
+      hud_font    →  used by the timer and flip-counter in the HUD
+    ──────────────────────────────────────────────────────────────────────────
+-->
+<resources>
+
+    <style name="Theme.MemoryMatch" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Brand colors (referenced by Material components) -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+
+        <!-- Status bar matches the dark backdrop -->
+        <item name="android:statusBarColor">@color/colorSecondary</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Global font -->
+        <item name="android:fontFamily">@font/zh_cn</item>
+        <item name="fontFamily">@font/zh_cn</item>
+    </style>
+
+    <!-- Base text appearance to avoid linking errors due to dot notation -->
+    <style name="TextAppearance.MemoryMatch" parent="TextAppearance.MaterialComponents.Body1" />
+
+    <!--
+        🎨 LOBBY FONT STYLE
+        Change android:fontFamily to @font/your_font_name
+        Change android:textStyle to bold / italic / normal as needed
+    -->
+    <style name="TextAppearance.MemoryMatch.LobbyTitle">
+        <item name="android:fontFamily">@font/zh_cn</item>
+        <item name="fontFamily">@font/zh_cn</item>         <!-- Added for backward compatibility -->
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <!--
+        🎨 HUD FONT STYLE
+        Change android:fontFamily to @font/your_font_name
+    -->
+    <style name="TextAppearance.MemoryMatch.Hud">
+        <item name="android:fontFamily">@font/zh_cn</item>
+        <item name="fontFamily">@font/zh_cn</item>  <!-- ← swap font here -->
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
+</resources>

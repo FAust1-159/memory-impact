@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    strings.xml — All user-visible text
+    🎨 Edit any string here to change the displayed label.
+-->
+<resources>
+    <string name="app_name">Memory Impact</string>
+
+    <!-- ── Lobby ──────────────────────────────────────────────────────── -->
+    <string name="lobby_title">Memory Impact</string>
+    <string name="lobby_start">Start Game</string>
+    <string name="lobby_exit">Exit Game</string>
+
+    <!-- ── HUD ───────────────────────────────────────────────────────── -->
+    <!-- %1$02d = minutes (zero-padded), %2$02d = seconds (zero-padded) -->
+    <string name="hud_time">%1$02d:%2$02d</string>
+    <string name="hud_time_default">00:00</string>
+    <!-- %1$d = flip count -->
+    <string name="hud_flips">Flips: %1$d</string>
+    <string name="hud_flips_default">Flips: 0</string>
+
+    <!-- ── Pause dialog ───────────────────────────────────────────────── -->
+    <string name="pause_title">Game Paused</string>
+    <string name="pause_resume">Resume</string>
+    <string name="pause_lobby">Back to Lobby</string>
+
+    <!-- ── Result dialog ─────────────────────────────────────────────── -->
+    <string name="result_title">You Won! 🎉</string>
+    <!-- %1$s = formatted time string -->
+    <string name="result_time">Time: %1$s</string>
+    <!-- %1$d = flip count -->
+    <string name="result_flips">Flips: %1$d</string>
+    <string name="result_retry">Retry</string>
+    <string name="result_lobby">Back to Lobby</string>
+
+    <!-- ── Accessibility ─────────────────────────────────────────────── -->
+    <string name="card_back_desc">Face-down card</string>
+    <string name="card_front_desc">Face-up card</string>
+    <string name="pause_button_desc">Pause game</string>
+</resources>

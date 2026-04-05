@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_lobby.xml — Lobby / home screen
+
+    🎨 CUSTOMISE:
+      • Background  → change android:background to @drawable/bg_lobby (replace bg_lobby.xml)
+      • Title text  → strings.xml  (app_name / lobby_title)
+      • Title font  → android:fontFamily attr below  OR  themes.xml
+      • Button font → android:fontFamily on each button  OR  themes.xml buttonStyle
+      • Colors      → colors.xml
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_lobby">
+
+    <!-- ── Title ─────────────────────────────────────────────────────────── -->
+    <TextView
+        android:id="@+id/tvLobbyTitle"
+        style="@style/TextAppearance.MemoryMatch.LobbyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/lobby_title_margin_bottom"
+        android:text="@string/lobby_title"
+        android:textColor="@color/lobby_title_color"
+        android:textSize="@dimen/lobby_title_size"
+        app:layout_constraintBottom_toTopOf="@id/btnStartGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <!-- ── Start button ──────────────────────────────────────────────────── -->
+    <Button
+        android:id="@+id/btnStartGame"
+        style="@style/TextAppearance.MemoryMatch.LobbyTitle"
+        android:layout_width="@dimen/lobby_button_width"
+        android:layout_height="wrap_content"
+        android:text="@string/lobby_start"
+        android:textSize="@dimen/lobby_button_text_size"
+        android:backgroundTint="@color/lobby_button_bg"
+        android:textColor="@color/lobby_button_text"
+        app:layout_constraintTop_toBottomOf="@id/tvLobbyTitle"
+        app:layout_constraintBottom_toTopOf="@id/btnExitGame"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="@dimen/lobby_button_gap" />
+
+    <!-- ── Exit button ───────────────────────────────────────────────────── -->
+    <Button
+        android:id="@+id/btnExitGame"
+        style="@style/TextAppearance.MemoryMatch.LobbyTitle"
+        android:layout_width="@dimen/lobby_button_width"
+        android:layout_height="wrap_content"
+        android:text="@string/lobby_exit"
+        android:textSize="@dimen/lobby_button_text_size"
+        android:backgroundTint="@color/lobby_button_bg"
+        android:textColor="@color/lobby_button_text"
+        app:layout_constraintTop_toBottomOf="@id/btnStartGame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

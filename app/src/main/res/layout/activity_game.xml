@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_game.xml — Game screen
+
+    Layout structure:
+      [Toolbar]            ← time (left) | pause icon (right)
+      [Flip counter row]   ← flips label below toolbar
+      [RecyclerView]       ← 4×4 card grid (fills remaining space)
+
+    🎨 CUSTOMISE:
+      • Background  → change android:background to @drawable/bg_game
+      • HUD font    → android:fontFamily on tvTimer / tvFlipCount
+      • Colors      → colors.xml
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_game">
+
+    <!-- ── AppBar / Toolbar ───────────────────────────────────────────────── -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/hud_bar_bg"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <!-- Timer — upper left ──────────────────────────────────────── -->
+            <TextView
+                android:id="@+id/tvTimer"
+                style="@style/TextAppearance.MemoryMatch.Hud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:text="@string/hud_time_default"
+                android:textSize="@dimen/hud_text_size"
+                android:textColor="@color/hud_text_color" />
+
+            <!-- Flip counter — upper right (pause icon pushed by menu) ──── -->
+            <TextView
+                android:id="@+id/tvFlipCount"
+                style="@style/TextAppearance.MemoryMatch.Hud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="@dimen/hud_flip_margin_end"
+                android:text="@string/hud_flips_default"
+                android:textSize="@dimen/hud_text_size"
+                android:textColor="@color/hud_text_color" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- ── Card grid ─────────────────────────────────────────────────────── -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCardGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:padding="@dimen/grid_padding"
+        android:clipToPadding="false"
+        android:overScrollMode="never" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

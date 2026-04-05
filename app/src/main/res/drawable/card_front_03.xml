@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    card_front_03.xml — CARD FRONT PLACEHOLDER (pair 03)
+    ══════════════════════════════════════════════════════════
+    🎨 CUSTOMISE: Replace this with your card-front art.
+
+    Recommended: swap the entire file for a <bitmap> pointing to your PNG/JPEG/WebP,
+    or paste your own <vector> drawable here.
+
+    Current placeholder: a colored circle with the pair number.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#bc5fd3" />
+        </shape>
+    </item>
+
+    <item
+        android:drawable="@drawable/flins"
+        android:top="16dp"
+        android:bottom="16dp"
+        android:left="16dp"
+        android:right="16dp"/>
+</layer-list>

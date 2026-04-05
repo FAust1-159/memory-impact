@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    dialog_result.xml — Win popup
+
+    Shows: time consumed, flip count, Retry button, Back to Lobby button.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/dialog_padding"
+    android:gravity="center"
+    android:background="@drawable/bg_dialog_result">
+
+    <TextView
+        android:id="@+id/tvResultTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/result_title"
+        android:textSize="@dimen/result_title_size"
+        android:textColor="@color/result_title_color"
+        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/result_inner_gap" />
+
+    <TextView
+        android:id="@+id/tvResultTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/result_stat_size"
+        android:textColor="@color/result_stat_color"
+        android:layout_marginBottom="@dimen/result_stat_gap" />
+
+    <TextView
+        android:id="@+id/tvResultFlips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/result_stat_size"
+        android:textColor="@color/result_stat_color"
+        android:layout_marginBottom="@dimen/result_inner_gap" />
+
+    <!-- Button row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:minWidth="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/result_button_margin_top">
+
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/result_retry"
+            android:backgroundTint="@color/lobby_button_bg"
+            android:textColor="@color/lobby_button_text"
+            android:layout_marginBottom="@dimen/result_button_gap" />
+
+        <Button
+            android:id="@+id/btnBackToLobby"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/result_lobby"
+            android:backgroundTint="@color/lobby_button_bg"
+            android:textColor="@color/lobby_button_text" />
+
+    </LinearLayout>
+
+</LinearLayout>

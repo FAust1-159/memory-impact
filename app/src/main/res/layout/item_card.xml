@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_card.xml — Single card cell in the 4×4 grid.
+
+    Two ImageViews stacked:
+      • imgCardBack  → shown when the card is face-down   🎨 card_back.xml
+      • imgCardFront → shown when the card is face-up     🎨 card_front_XX.xml
+
+    The CardAdapter swaps their visibility and plays flip animations.
+
+    🎨 CUSTOMISE:
+      • Card back  → replace res/drawable/card_back.xml with your art
+      • Card front → replace res/drawable/card_front_01..08.xml with your art
+      • Card size  → dimens.xml  (card_size)
+      • Corner radius / elevation → card_corner_radius / card_elevation in dimens.xml
+-->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/card_size"
+    android:layout_height="@dimen/card_size"
+    android:layout_margin="@dimen/card_margin"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation"
+    app:strokeWidth="0dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Card back — 🎨 swap card_back drawable for your art -->
+        <ImageView
+            android:id="@+id/imgCardBack"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/card_back"
+            android:contentDescription="@string/card_back_desc" />
+
+        <!-- Card front — src is set programmatically in CardAdapter -->
+        <ImageView
+            android:id="@+id/imgCardFront"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:padding="@dimen/card_front_padding"
+            android:visibility="gone"
+            android:contentDescription="@string/card_front_desc" />
+
+    </FrameLayout>
+
+</com.google.android.material.card.MaterialCardView>
