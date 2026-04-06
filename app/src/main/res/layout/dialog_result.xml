@@ -2,7 +2,7 @@
 <!--
     dialog_result.xml — Win popup
 
-    Shows: time consumed, flip count, Retry button, Back to Lobby button.
+    Shows: time consumed, flip count, score, Retry button, Back to Lobby button.
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,6 +22,15 @@
         android:textColor="@color/result_title_color"
         android:textStyle="bold"
         android:layout_marginBottom="@dimen/result_inner_gap" />
+
+    <TextView
+        android:id="@+id/tvResultScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/result_stat_color"
+        android:layout_marginBottom="@dimen/result_stat_gap" />
 
     <TextView
         android:id="@+id/tvResultTime"

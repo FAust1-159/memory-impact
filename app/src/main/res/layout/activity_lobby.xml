@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     activity_lobby.xml — Lobby / home screen
-
-    🎨 CUSTOMISE:
-      • Background  → change android:background to @drawable/bg_lobby (replace bg_lobby.xml)
-      • Title text  → strings.xml  (app_name / lobby_title)
-      • Title font  → android:fontFamily attr below  OR  themes.xml
-      • Button font → android:fontFamily on each button  OR  themes.xml buttonStyle
-      • Colors      → colors.xml
 -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -31,11 +24,27 @@
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="1"
-        app:layout_constraintBottom_toTopOf="@id/btnStartGame"
+        app:layout_constraintBottom_toTopOf="@id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <!-- ── Login button ─────────────────────────────────────────────────── -->
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/TextAppearance.MemoryMatch.LobbyTitle"
+        android:layout_width="@dimen/lobby_button_width"
+        android:layout_height="wrap_content"
+        android:text="@string/lobby_login"
+        android:textSize="@dimen/lobby_button_text_size"
+        android:backgroundTint="@color/lobby_button_bg"
+        android:textColor="@color/lobby_button_text"
+        app:layout_constraintTop_toBottomOf="@id/tvLobbyTitle"
+        app:layout_constraintBottom_toTopOf="@id/btnStartGame"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="@dimen/lobby_button_gap" />
 
     <!-- ── Start button ──────────────────────────────────────────────────── -->
     <Button
@@ -47,7 +56,23 @@
         android:textSize="@dimen/lobby_button_text_size"
         android:backgroundTint="@color/lobby_button_bg"
         android:textColor="@color/lobby_button_text"
-        app:layout_constraintTop_toBottomOf="@id/tvLobbyTitle"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"
+        app:layout_constraintBottom_toTopOf="@id/btnLeaderboards"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="@dimen/lobby_button_gap" />
+
+    <!-- ── Leaderboards button ──────────────────────────────────────────── -->
+    <Button
+        android:id="@+id/btnLeaderboards"
+        style="@style/TextAppearance.MemoryMatch.LobbyTitle"
+        android:layout_width="@dimen/lobby_button_width"
+        android:layout_height="wrap_content"
+        android:text="@string/lobby_leaderboards"
+        android:textSize="@dimen/lobby_button_text_size"
+        android:backgroundTint="@color/lobby_button_bg"
+        android:textColor="@color/lobby_button_text"
+        app:layout_constraintTop_toBottomOf="@id/btnStartGame"
         app:layout_constraintBottom_toTopOf="@id/btnExitGame"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +88,7 @@
         android:textSize="@dimen/lobby_button_text_size"
         android:backgroundTint="@color/lobby_button_bg"
         android:textColor="@color/lobby_button_text"
-        app:layout_constraintTop_toBottomOf="@id/btnStartGame"
+        app:layout_constraintTop_toBottomOf="@id/btnLeaderboards"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -73,7 +98,7 @@
         android:id="@+id/tvDevelopers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="32dp"
         android:text="@string/lobby_devs"
         android:textColor="@color/colorPrimary"
         android:textSize="12sp"
@@ -82,7 +107,6 @@
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="1"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnExitGame" />

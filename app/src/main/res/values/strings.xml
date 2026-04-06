@@ -9,8 +9,25 @@
     <!-- ── Lobby ──────────────────────────────────────────────────────── -->
     <string name="lobby_title">Memory Impact</string>
     <string name="lobby_start">Start Game</string>
+    <string name="lobby_login">Log In</string>
+    <string name="lobby_logout">Log Out</string>
+    <string name="lobby_leaderboards">Leaderboards</string>
     <string name="lobby_exit">Exit Game</string>
     <string name="lobby_devs">Made by Fergus Austria &amp; Joseph Roda</string>
+    <string name="welcome_user">Welcome, %1$s!</string>
+
+    <!-- ── Login ──────────────────────────────────────────────────────── -->
+    <string name="login_title">Log In</string>
+    <string name="login_username_hint">Username</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_button">Log In / Sign Up</string>
+    <string name="login_error_empty">Please enter username and password</string>
+    <string name="login_success">Logged in successfully</string>
+
+    <!-- ── Leaderboards ────────────────────────────────────────────────── -->
+    <string name="leaderboard_title">Top 10 Leaderboard</string>
+    <string name="leaderboard_empty">No scores yet!</string>
+    <string name="leaderboard_rank">#%1$d</string>
 
     <!-- ── HUD ───────────────────────────────────────────────────────── -->
     <!-- %1$02d = minutes (zero-padded), %2$02d = seconds (zero-padded) -->
@@ -19,6 +36,7 @@
     <!-- %1$d = flip count -->
     <string name="hud_flips">Flips: %1$d</string>
     <string name="hud_flips_default">Flips: 0</string>
+    <string name="hud_score">Score: %1$d</string>
 
     <!-- ── Pause dialog ───────────────────────────────────────────────── -->
     <string name="pause_title">Game Paused</string>
@@ -31,6 +49,7 @@
     <string name="result_time">Time: %1$s</string>
     <!-- %1$d = flip count -->
     <string name="result_flips">Flips: %1$d</string>
+    <string name="result_score">Score: %1$d</string>
     <string name="result_retry">Retry</string>
     <string name="result_lobby">Back to Lobby</string>
 

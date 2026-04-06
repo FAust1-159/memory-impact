@@ -21,6 +21,20 @@
             </intent-filter>
         </activity>
 
+        <!-- ── Login screen ────────────────────────────────────────────── -->
+        <activity
+            android:name=".ui.lobby.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".ui.lobby.LobbyActivity" />
+
+        <!-- ── Leaderboard screen ───────────────────────────────────────── -->
+        <activity
+            android:name=".ui.lobby.LeaderboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".ui.lobby.LobbyActivity" />
+
         <!-- ── Game screen ──────────────────────────────────────────────── -->
         <activity
             android:name=".ui.game.GameActivity"

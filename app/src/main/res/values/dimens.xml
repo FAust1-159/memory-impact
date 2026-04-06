@@ -28,8 +28,8 @@
     <dimen name="dialog_padding">24dp</dimen>
     <dimen name="result_title_size">24sp</dimen>
     <dimen name="result_stat_size">17sp</dimen>
-    <dimen name="result_inner_gap">12dp</dimen>
-    <dimen name="result_stat_gap">6dp</dimen>
+    <dimen name="result_inner_gap">16dp</dimen>
+    <dimen name="result_stat_gap">12dp</dimen>
     <dimen name="result_button_margin_top">16dp</dimen>
     <dimen name="result_button_gap">8dp</dimen>
 </resources>

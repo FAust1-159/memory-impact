@@ -3,7 +3,6 @@ package com.memorymatch.ui.game
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -14,14 +13,7 @@ import com.memorymatch.ui.aftergame.ResultDialogFragment
 import com.memorymatch.viewmodel.GameViewModel
 
 /**
- * Game screen — 4×4 card grid, HUD (time + flips), pause button.
- *
- * ── 🎨 CUSTOMISE ──────────────────────────────────────────────────────────
- *  • Background  → res/drawable/bg_game.xml
- *  • HUD font    → res/values/themes.xml  (gameHudFont attr)
- *  • Card back   → res/drawable/card_back.xml
- *  • Card fronts → res/drawable/card_front_01..08.xml
- * ──────────────────────────────────────────────────────────────────────────
+ * Game screen — 4×4 card grid, HUD (time + flips + score), pause button.
  */
 class GameActivity : AppCompatActivity() {
 
@@ -89,7 +81,6 @@ class GameActivity : AppCompatActivity() {
         binding.rvCardGrid.apply {
             layoutManager = GridLayoutManager(this@GameActivity, GRID_COLUMNS)
             adapter = cardAdapter
-            // Prevent the RecyclerView from intercepting card animations.
             itemAnimator = null
         }
     }
@@ -108,6 +99,10 @@ class GameActivity : AppCompatActivity() {
         viewModel.elapsedSeconds.observe(this) { seconds ->
             binding.tvTimer.text = formatTime(seconds)
         }
+        
+        viewModel.score.observe(this) { score ->
+            binding.tvScore.text = getString(R.string.hud_score, score)
+        }
 
         viewModel.gameWon.observe(this) { won ->
             if (won) showResultDialog()
@@ -119,8 +114,9 @@ class GameActivity : AppCompatActivity() {
     private fun showResultDialog() {
         val time = viewModel.elapsedSeconds.value ?: 0L
         val flips = viewModel.flipCount.value ?: 0
+        val score = viewModel.score.value ?: 0
 
-        ResultDialogFragment.newInstance(time, flips)
+        ResultDialogFragment.newInstance(time, flips, score)
             .show(supportFragmentManager, ResultDialogFragment.TAG)
     }
 
@@ -139,7 +135,6 @@ class GameActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        // Only restart timer if game is still in progress.
         if (viewModel.gameWon.value == false) {
             viewModel.startTimer()
         }

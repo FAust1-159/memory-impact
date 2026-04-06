@@ -35,6 +35,9 @@ class GameViewModel : ViewModel() {
     private val _elapsedSeconds = MutableLiveData(0L)
     val elapsedSeconds: LiveData<Long> = _elapsedSeconds
 
+    private val _score = MutableLiveData(0)
+    val score: LiveData<Int> = _score
+
     // ── Win state ────────────────────────────────────────────────────────────
 
     private val _gameWon = MutableLiveData(false)
@@ -64,6 +67,7 @@ class GameViewModel : ViewModel() {
         _cards.value = CardDeck.buildShuffledDeck()
         _flipCount.value = 0
         _elapsedSeconds.value = 0L
+        _score.value = 0
         _gameWon.value = false
         pendingFlips.clear()
         isLocked = false
@@ -140,6 +144,9 @@ class GameViewModel : ViewModel() {
             updated[first.id] = first.copy(isMatched = true)
             updated[second.id] = second.copy(isMatched = true)
             _cards.value = updated
+            
+            // Score +10 for match
+            _score.value = (_score.value ?: 0) + 10
 
             if (updated.all { it.isMatched }) {
                 stopTimer()
@@ -148,6 +155,10 @@ class GameViewModel : ViewModel() {
         } else {
             // ❌ No match — lock, wait, flip back.
             isLocked = true
+            
+            // Score -5 for mismatch
+            _score.value = (_score.value ?: 0) - 5
+
             viewModelScope.launch {
                 delay(MISMATCH_DELAY_MS)
                 val updated = _cards.value!!.toMutableList()

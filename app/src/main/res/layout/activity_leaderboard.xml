@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_lobby"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/tvLeaderboardTitle"
+        style="@style/TextAppearance.MemoryMatch.LobbyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/leaderboard_title"
+        android:textColor="@color/lobby_title_color"
+        android:textSize="28sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLeaderboard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tvLeaderboardTitle"
+        app:layout_constraintBottom_toTopOf="@id/btnBackToLobby"
+        tools:listitem="@layout/item_leaderboard" />
+
+    <TextView
+        android:id="@+id/tvEmptyLeaderboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/leaderboard_empty"
+        android:textColor="@color/lobby_title_color"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/rvLeaderboard"
+        app:layout_constraintBottom_toBottomOf="@id/rvLeaderboard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnBackToLobby"
+        style="@style/TextAppearance.MemoryMatch.LobbyTitle"
+        android:layout_width="@dimen/lobby_button_width"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:backgroundTint="@color/lobby_button_bg"
+        android:textColor="@color/lobby_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

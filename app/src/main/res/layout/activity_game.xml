@@ -30,30 +30,57 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="?attr/actionBarSize"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp">
 
-            <!-- Timer — upper left ──────────────────────────────────────── -->
-            <TextView
-                android:id="@+id/tvTimer"
-                style="@style/TextAppearance.MemoryMatch.Hud"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical"
-                android:text="@string/hud_time_default"
-                android:textSize="@dimen/hud_text_size"
-                android:textColor="@color/hud_text_color" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <!-- Flip counter — upper right (pause icon pushed by menu) ──── -->
-            <TextView
-                android:id="@+id/tvFlipCount"
-                style="@style/TextAppearance.MemoryMatch.Hud"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginEnd="@dimen/hud_flip_margin_end"
-                android:text="@string/hud_flips_default"
-                android:textSize="@dimen/hud_text_size"
-                android:textColor="@color/hud_text_color" />
+                <!-- Timer — left -->
+                <TextView
+                    android:id="@+id/tvTimer"
+                    style="@style/TextAppearance.MemoryMatch.Hud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/hud_time_default"
+                    android:textSize="@dimen/hud_text_size"
+                    android:textColor="@color/hud_text_color" />
+
+                <!-- Score — center-ish (between timer and flips) -->
+                <TextView
+                    android:id="@+id/tvScore"
+                    style="@style/TextAppearance.MemoryMatch.Hud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/tvTimer"
+                    app:layout_constraintEnd_toStartOf="@id/tvFlipCount"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="Score: 0"
+                    android:textSize="@dimen/hud_text_size"
+                    android:textColor="@color/hud_text_color" />
+
+                <!-- Flips — right -->
+                <TextView
+                    android:id="@+id/tvFlipCount"
+                    style="@style/TextAppearance.MemoryMatch.Hud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/hud_flip_margin_end"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/hud_flips_default"
+                    android:textSize="@dimen/hud_text_size"
+                    android:textColor="@color/hud_text_color" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>

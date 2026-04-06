@@ -9,10 +9,15 @@ import com.memorymatch.R
 import com.memorymatch.databinding.DialogResultBinding
 import com.memorymatch.viewmodel.GameViewModel
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
+import com.memorymatch.model.AppDatabase
+import com.memorymatch.model.Score
+import com.memorymatch.utils.SessionManager
+import kotlinx.coroutines.launch
 
 /**
  * Modal dialog shown after all pairs are matched.
- * Displays time consumed and total flips.
+ * Displays time consumed, total flips, and score.
  * Offers Retry (new game) and Back to Lobby.
  */
 class ResultDialogFragment : DialogFragment() {
@@ -38,9 +43,13 @@ class ResultDialogFragment : DialogFragment() {
 
         val totalSeconds = arguments?.getLong(ARG_TIME) ?: 0L
         val flips = arguments?.getInt(ARG_FLIPS) ?: 0
+        val score = arguments?.getInt(ARG_SCORE) ?: 0
 
         binding.tvResultTime.text = getString(R.string.result_time, formatTime(totalSeconds))
         binding.tvResultFlips.text = getString(R.string.result_flips, flips)
+        binding.tvResultScore.text = getString(R.string.result_score, score)
+
+        saveScoreIfLoggedIn(score)
 
         binding.btnRetry.setOnClickListener {
             viewModel.resetGame()
@@ -50,6 +59,16 @@ class ResultDialogFragment : DialogFragment() {
         binding.btnBackToLobby.setOnClickListener {
             dismiss()
             requireActivity().finish()   // Pops GameActivity → back to LobbyActivity
+        }
+    }
+
+    private fun saveScoreIfLoggedIn(score: Int) {
+        val username = SessionManager.getUsername(requireContext())
+        if (username != null) {
+            lifecycleScope.launch {
+                val db = AppDatabase.getDatabase(requireContext())
+                db.scoreDao().insertScore(Score(username = username, score = score))
+            }
         }
     }
 
@@ -68,12 +87,14 @@ class ResultDialogFragment : DialogFragment() {
         const val TAG = "ResultDialog"
         private const val ARG_TIME = "arg_time"
         private const val ARG_FLIPS = "arg_flips"
+        private const val ARG_SCORE = "arg_score"
 
-        fun newInstance(timeSeconds: Long, flips: Int) =
+        fun newInstance(timeSeconds: Long, flips: Int, score: Int) =
             ResultDialogFragment().apply {
                 arguments = Bundle().apply {
                     putLong(ARG_TIME, timeSeconds)
                     putInt(ARG_FLIPS, flips)
+                    putInt(ARG_SCORE, score)
                 }
             }
     }
