@@ -12,11 +12,23 @@
 
     Current placeholder: a soft diagonal gradient.
 -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <gradient
-        android:type="linear"
-        android:angle="135"
-        android:startColor="#1A1A2E"
-        android:centerColor="#16213E"
-        android:endColor="#0F3460" />
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Layer 1: Gradient backdrop -->
+    <item>
+        <shape>
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="#1A1A2E"
+                android:centerColor="#16213E"
+                android:endColor="#0F3460" />
+        </shape>
+    </item>
+
+    <!-- Layer 2: Enkanomiya foreground -->
+    <item>
+        <bitmap
+           android:src="@drawable/enka_port"
+           android:gravity="center" />
+    </item>
+</layer-list>

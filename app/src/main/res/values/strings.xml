@@ -10,6 +10,7 @@
     <string name="lobby_title">Memory Impact</string>
     <string name="lobby_start">Start Game</string>
     <string name="lobby_exit">Exit Game</string>
+    <string name="lobby_devs">Made by Fergus Austria &amp; Joseph Roda</string>
 
     <!-- ── HUD ───────────────────────────────────────────────────────── -->
     <!-- %1$02d = minutes (zero-padded), %2$02d = seconds (zero-padded) -->
