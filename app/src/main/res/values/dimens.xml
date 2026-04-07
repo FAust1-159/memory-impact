@@ -19,7 +19,7 @@
     <!-- ── Card grid ──────────────────────────────────────────────────── -->
     <dimen name="grid_padding">8dp</dimen>
     <dimen name="card_size">76dp</dimen>
-    <dimen name="card_margin">4dp</dimen>
+    <dimen name="card_margin">10dp</dimen>
     <dimen name="card_corner_radius">10dp</dimen>
     <dimen name="card_elevation">4dp</dimen>
     <dimen name="card_front_padding">8dp</dimen>

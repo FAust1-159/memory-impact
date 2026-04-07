@@ -25,7 +25,7 @@
     <string name="login_success">Logged in successfully</string>
 
     <!-- ── Leaderboards ────────────────────────────────────────────────── -->
-    <string name="leaderboard_title">Top 10 Leaderboard</string>
+    <string name="leaderboard_title">Top 10 Travelers</string>
     <string name="leaderboard_empty">No scores yet!</string>
     <string name="leaderboard_rank">#%1$d</string>
 
