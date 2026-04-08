@@ -48,7 +48,7 @@ class GameViewModel : ViewModel() {
     /** Cards that are currently face-up but not yet matched (max 2). */
     private val pendingFlips = mutableListOf<Card>()
 
-    /** While true the player cannot flip any card (brief lock after wrong pair). */
+    /** While true the player cannot flip any card (brief lock while validating pairs). */
     private var isLocked = false
 
     /** True while the game clock should advance. */
@@ -123,6 +123,8 @@ class GameViewModel : ViewModel() {
         pendingFlips.add(flippedCard)
 
         if (pendingFlips.size == 2) {
+            // Lock input until evaluatePair decides when to release it.
+            isLocked = true
             evaluatePair()
         }
 
@@ -152,9 +154,14 @@ class GameViewModel : ViewModel() {
                 stopTimer()
                 _gameWon.value = true
             }
+
+            // Small buffer delay even for matches to prevent rapid-click bugs
+            viewModelScope.launch {
+                delay(MATCH_DELAY_MS)
+                isLocked = false
+            }
         } else {
-            // ❌ No match — lock, wait, flip back.
-            isLocked = true
+            // ❌ No match — wait, flip back, then unlock.
             
             // Score -5 for mismatch
             _score.value = (_score.value ?: 0) - 5
@@ -178,5 +185,7 @@ class GameViewModel : ViewModel() {
     companion object {
         /** How long (ms) the mismatched pair stays visible before flipping back. */
         const val MISMATCH_DELAY_MS = 800L
+        /** Buffer time after a match before player can flip another card. */
+        const val MATCH_DELAY_MS = 300L
     }
 }
